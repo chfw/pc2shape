@@ -1,5 +1,5 @@
-pc2shape
-========
+Post Code to Shapefile
+=======================
 
 # DISCLAIMER
 

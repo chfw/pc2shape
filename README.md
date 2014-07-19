@@ -3,12 +3,13 @@ pc2shape
 
 # DISCLAIMER
 
-## NO GUARANTEE GRANTED. I DID NOT PROMISE TO SOLVE ANY OF YOUR PROBLEMS BY THIS SHARING ALTHOUGH I HOPE IT HELPS YOU IN ANY WAY.
+*NO GUARANTEE GRANTED. I DID NOT PROMISE TO SOLVE ANY OF YOUR PROBLEMS BY THIS SHARING ALTHOUGH I HOPE IT HELPS YOU IN ANY WAY.*
 
 # Intallation
 
-
 1. install shapelib
+
+shapelib was included for quick start only. If you happen to view this repository in distant future, say 2018, you are on your own. Please refer to later section for clues.
 
 ```
  tar xzvf shapelib-1.3.0.tgz
@@ -29,7 +30,7 @@ pc2shape
 
 Then you are ready to use the makeShapeColoured.py
 
-# Shapelib - the only troublesome dependency:
+# clues for Shapelib
 
 Please follow the page here to get latest code of Shapelib:
 
@@ -47,6 +48,53 @@ https://mail.python.org/pipermail/python-announce-list/2004-May/003129.html
 
 With the repect to makeShape.py, I used BSD license. Please respect individual licenses of the included code
 
+# KNOWN PROBLEM 
+
+```
+Traceback (most recent call last):
+  File "makeShapeColoured.py", line 349, in <module>
+    result = voronoi.computeVoronoiDiagram(pts)
+  File "/home/kev/osm/voronoi.py", line 746, in computeVoronoiDiagram
+    voronoi(siteList,context)
+  File "/home/kev/osm/voronoi.py", line 206, in voronoi
+    edge = Edge.bisect(bot,newsite)
+  File "/home/kev/osm/voronoi.py", line 404, in bisect
+    newedge.a = dx/dy
+ZeroDivisionError: float division
+```
+
+It means that you have duplicated geocoordinates in your input. Remove them!!
+
+Reference:
+
+http://web.archiveorange.com/archive/v/shBzDhEFxm5GxY3hiK5b
+
+# Usage
+
+Create shapefiles of postcode boundaries from a list of postcodes:
+
+Usage:
+	makeShape.py [filename]
+
+If filename is not supplied then list is read from stdin.
+
+The post code list should be supplied with one post code per line:
+   <latitude> <longitude> <post code>
+
+Example:
+   51.5 0.15 SE16
+   51.51 0.154 SE16 9XX
+
+The result will be several shapefiles. For each file described
+below there will be .shp .shx .dbf
+
+  postcode-XX: shapefiles for the first two letters
+  postcode-XXNN: shapefiles for the post code first part
+  postcode-XXNN-N: shapefiles for the post code minus the last
+        two letters
+
+  postcode-XX_cen (etc): label positions for each region
+  postcode-XX_edges (etc): all edges unsorted for each region
 
 # ORIGINAL README
 

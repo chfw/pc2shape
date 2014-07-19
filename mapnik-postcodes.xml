@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map>
+<Map bgcolor="transparent" srs_old="+proj=merc" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs">
+
+  <Style name="XX-boundary">
+    <Rule>
+      <LineSymbolizer>
+        <CssParameter name="stroke">black</CssParameter>
+        <CssParameter name="stroke-width">1</CssParameter>
+      </LineSymbolizer>
+    </Rule>
+  </Style>
+
+  <Style name="XX-text">
+    <Rule>
+      <TextSymbolizer name="NAME" face_name="DejaVu Sans Book" size="15" fill="black" halo_fill="white" halo_radius="1" wrap_width="0"/>
+    </Rule>
+  </Style>
+
+  <Style name="XXNN-boundary">
+    <Rule>
+      <MinScaleDenominator>1000000</MinScaleDenominator>
+      <LineSymbolizer>
+        <CssParameter name="stroke">blue</CssParameter>
+        <CssParameter name="stroke-width">0.25</CssParameter>
+      </LineSymbolizer>
+    </Rule>
+    <Rule>
+      <MaxScaleDenominator>1000000</MaxScaleDenominator>
+      <LineSymbolizer>
+        <CssParameter name="stroke">blue</CssParameter>
+        <CssParameter name="stroke-width">0.5</CssParameter>
+      </LineSymbolizer>
+    </Rule>
+  </Style>
+
+  <Style name="XXNN-text">
+    <Rule>
+      <MaxScaleDenominator>1000000</MaxScaleDenominator>
+      <TextSymbolizer name="NAME" face_name="DejaVu Sans Book" size="9" fill="blue" halo_fill="white" halo_radius="1" wrap_width="0"/>
+    </Rule>
+  </Style>
+
+  <Style name="XXNN-N-boundary">
+    <Rule>
+      <MaxScaleDenominator>1000000</MaxScaleDenominator>
+      <LineSymbolizer>
+        <CssParameter name="stroke">green</CssParameter>
+        <CssParameter name="stroke-width">0.1</CssParameter>
+      </LineSymbolizer>
+    </Rule>
+  </Style>
+
+
+  <Layer name="XXNN-N-boundary" status="on" srs="+proj=merc">
+    <StyleName>XXNN-N-boundary</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">${postcodes}/XXNN-N</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Layer name="XXNN-boundary" status="on" srs="+proj=merc">
+    <StyleName>XXNN-boundary</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">${postcodes}/XXNN</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Layer name="XX-boundary" status="on" srs="+proj=merc">
+    <StyleName>XX-boundary</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">${postcodes}/XX</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Layer name="XX-text" status="on" srs="+proj=merc">
+    <StyleName>XX-text</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">${postcodes}/XX_cen</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Layer name="XXNN-text" status="on" srs="+proj=merc">
+    <StyleName>XXNN-text</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">${postcodes}/XXNN_cen</Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map>
+<Map bgcolor="white" srs_old="+proj=merc" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs">
+
+  <Style name="XX-poly">
+    <Rule>
+      <Filter>[COLOUR]='A'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">red</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='B'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">green</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='C'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">blue</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='D'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">#c9d00f</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='E'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">purple</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='F'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">gray</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+  </Style>
+
+  <Style name="XXNN-poly">
+    <Rule>
+      <Filter>[COLOUR]='A'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.1</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='B'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.2</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='C'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.3</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='D'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.4</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='E'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.5</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+  </Style>
+
+  <Style name="XXNN-N-poly">
+    <Rule>
+      <Filter>[COLOUR]='A'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.01</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='B'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.02</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='C'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.03</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='D'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.04</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[COLOUR]='E'</Filter>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">white</CssParameter>
+        <CssParameter name="fill-opacity">0.05</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+  </Style>
+
+  <Style name="coast-poly">
+    <Rule>
+      <PolygonSymbolizer>
+        <CssParameter name="fill">#b5d0d0</CssParameter>
+      </PolygonSymbolizer>
+    </Rule>
+  </Style>
+
+
+  <Layer name="XX-boundary" status="on" srs="+proj=merc">
+    <StyleName>XX-poly</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">${postcodes}/XX</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Layer name="XXNN-boundary" status="on" srs="+proj=merc">
+    <StyleName>XXNN-poly</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">${postcodes}/XXNN</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Layer name="XXNN-N-boundary" status="on" srs="+proj=merc">
+    <StyleName>XXNN-N-poly</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">${postcodes}/XXNN-N</Parameter>
+    </Datasource>
+  </Layer>
+
+  <Layer name="coast-poly" status="on" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <StyleName>coast-poly</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">coast/processed_gb_p</Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>
